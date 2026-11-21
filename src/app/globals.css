@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root { color-scheme: light; }
+body { @apply bg-slate-50 text-slate-800; }
+.container-max { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.section { @apply py-14 sm:py-20; }
+.card-eq { @apply h-full flex flex-col; }
