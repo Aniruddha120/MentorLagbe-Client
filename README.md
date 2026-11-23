@@ -1,36 +1,48 @@
 # MentorLagbe Client
 
-Next.js (App Router) frontend for MentorLagbe - Smart Tuition & Mentorship Platform.
-
-## Project purpose
-Connects students with verified tutors. Tutors post tuition batches, admins moderate, students apply, and Pro plans are purchased via Stripe.
+Next.js (App Router) frontend for **MentorLagbe** - a smart tuition and mentorship platform connecting students with verified tutors.
 
 ## Live URL
-- Client: add deployed URL
-- Server: add deployed URL
+- Client: https://mentor-lagbe-client-kohl.vercel.app
+- Server: https://mentorlagbe-server-66nj.onrender.com
 
-## Admin credentials
-- Email: add admin email
-- Password: add admin password
+## Admin Credentials
+- Email: admin@mentorlagbe.com
+- Password: 12345678
 
-## Tutor test credentials
-- Email: add tutor email
-- Password: add tutor password
+## Tutor Test Credentials
+- Email: jhankar@ph.com
+- Password: 12345678
 
-## Key features
-- Role-based auth (Student/Tutor/Admin) with BetterAuth + JWT
-- Browse/search/filter/paginated approved tuitions
-- Tuition details + student application flow (duplicate prevention)
-- Tutor dashboard: post/edit/delete/close tuitions, manage applicants
-- Admin dashboard: user role management, tuition approval, Stripe transactions
-- Stripe Checkout Pro plans + payment confirmation/webhook sync
-- ImgBB profile/banner image upload
-- Responsive UI, loading/error/not-found pages, toast notifications
+## Key Features
+- Role-based authentication and dashboards for **Student**, **Tutor**, and **Admin** (BetterAuth + JWT).
+- Public tuition browsing with search, filter, sort, and pagination; tuition details page.
+- Student flow: apply to approved tuitions with duplicate prevention, track applications, cancel pending applications.
+- Tutor flow: post tuition with image upload (ImgBB via server API), edit/delete/close own tuitions, review applicants, accept/reject applications.
+- Free tutor plan limit: up to 2 tuition posts; Pro plan: unlimited posts.
+- Admin flow: user role management, tuition approval/rejection, Stripe transaction monitoring, platform stats.
+- Shared profile update for all roles (name, phone, bio, profile image upload/URL).
+- Stripe Checkout for Pro plans, payment success/cancel pages, payment confirmation/webhook sync, `payments` collection records, user plan upgraded to `pro`.
+- Responsive UI with DaisyUI/Tailwind, loading, error, and not-found pages, toast notifications.
 
-## NPM packages
-next, react, react-dom, better-auth, react-hot-toast, stripe, tailwindcss, daisyui, @tailwindcss/postcss
+## NPM Packages
+- next
+- react
+- react-dom
+- better-auth
+- react-hot-toast
+- stripe
+- tailwindcss
+- daisyui
+- @tailwindcss/postcss
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
 
 ## Setup
 1. `cp .env.example .env.local`
-2. `npm install`
-3. `npm run dev`
+2. Fill env values:
+   - `NEXT_PUBLIC_API_URL=http://localhost:5000`
+3. `npm install`
+4. `npm run dev -- -p 3001`
