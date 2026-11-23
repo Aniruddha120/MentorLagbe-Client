@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import DashboardShell from '@/components/dashboard/DashboardShell';
-import { api, uploadToImgbb } from '@/lib/api';
+import { api, uploadImage } from '@/lib/api';
 import { useAuth } from '@/components/Providers';
 
 const empty = { title:'', subject:'', classLevel:'', mode:'Online', location:'', monthlyFee:'', daysPerWeek:'', description:'', bannerImage:'' };
@@ -18,7 +18,7 @@ export default function PostTuition() {
     setSaving(true);
     try {
       let bannerImage = form.bannerImage;
-      if (file) bannerImage = await uploadToImgbb(file);
+      if (file) bannerImage = await uploadImage(file, token);
       await api('/api/tutor/tuitions', { method: 'POST', token, body: { ...form, bannerImage } });
       toast.success('Tuition submitted for admin approval');
       setForm(empty); setFile(null);

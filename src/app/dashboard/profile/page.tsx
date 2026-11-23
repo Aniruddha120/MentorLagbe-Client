@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import DashboardShell from '@/components/dashboard/DashboardShell';
 import { useAuth } from '@/components/Providers';
-import { api, uploadToImgbb } from '@/lib/api';
+import { api, uploadImage } from '@/lib/api';
 
 export default function ProfilePage() {
   const { user, token, refreshUser } = useAuth();
@@ -20,7 +20,7 @@ export default function ProfilePage() {
     setSaving(true);
     try {
       let image = form.image;
-      if (file) image = await uploadToImgbb(file);
+      if (file) image = await uploadImage(file, token);
       await api('/api/users/me', { method: 'PATCH', token, body: { ...form, image } });
       await refreshUser();
       toast.success('Profile updated');

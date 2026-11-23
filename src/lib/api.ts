@@ -24,13 +24,13 @@ export async function api(path: string, { method = 'GET', body, token, headers =
   return data;
 }
 
-export async function uploadToImgbb(file: File) {
-  const key = process.env.NEXT_PUBLIC_IMGBB_API_KEY;
-  if (!key) throw new Error('Missing NEXT_PUBLIC_IMGBB_API_KEY');
-  const fd = new FormData();
-  fd.append('image', file);
-  const res = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, { method: 'POST', body: fd });
-  const data = await res.json();
-  if (!data.success) throw new Error(data.error?.message || 'Image upload failed');
-  return data.data.display_url as string;
+export async function uploadImage(file: File, token?: string | null) {
+  const image = await new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = () => reject(new Error('Failed to read image'));
+    reader.readAsDataURL(file);
+  });
+  const data: any = await api('/api/upload', { method: 'POST', token, body: { image } });
+  return data.url as string;
 }
