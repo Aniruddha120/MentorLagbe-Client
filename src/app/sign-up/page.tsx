@@ -27,8 +27,7 @@ export default function SignUpPage() {
       const jwtRes: any = await api('/api/jwt', { method: 'POST', body: { email: form.email } });
       await api('/api/users/me', { method: 'PATCH', token: jwtRes.token, body: { role: form.role } });
       toast.success('Account created');
-      router.push('/dashboard');
-      router.refresh();
+      window.location.href = '/dashboard';
     } catch (err: any) { toast.error(err.message); }
     finally { setLoading(false); }
   };

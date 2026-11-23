@@ -20,8 +20,7 @@ export default function SignInPage() {
       if (error) throw new Error(error.message || 'Sign in failed');
       await api('/api/jwt', { method: 'POST', body: { email: form.email } });
       toast.success('Signed in');
-      router.push('/dashboard');
-      router.refresh();
+      window.location.href = '/dashboard';
     } catch (err: any) { toast.error(err.message); }
     finally { setLoading(false); }
   };
