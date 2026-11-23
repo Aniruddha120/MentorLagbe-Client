@@ -30,7 +30,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <DashboardShell>
+    <DashboardShell allowed={['student', 'tutor', 'admin']}>
       <div className="bg-white border rounded-2xl p-6 max-w-2xl">
         <h1 className="text-2xl font-bold mb-4">Update Profile</h1>
         <form onSubmit={save} className="space-y-4">

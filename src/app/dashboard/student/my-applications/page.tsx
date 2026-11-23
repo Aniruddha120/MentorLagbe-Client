@@ -32,7 +32,7 @@ export default function MyApplications() {
                 <td>{a.status === 'pending' && <button onClick={()=>cancel(a._id)} className="btn btn-xs btn-error btn-outline">Cancel</button>}</td>
               </tr>
             ))}
-            {!items.length && <tr><td colSpan="6" className="text-center text-slate-500 py-8">No applications yet.</td></tr>}
+            {!items.length && <tr><td colSpan={6} className="text-center text-slate-500 py-8">No applications yet.</td></tr>}
           </tbody>
         </table>
       </div>

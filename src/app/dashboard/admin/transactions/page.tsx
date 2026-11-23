@@ -25,7 +25,7 @@ export default function AdminTransactions() {
                 <td>{p.paidAt ? new Date(p.paidAt).toLocaleString() : '—'}</td>
               </tr>
             ))}
-            {!items.length && <tr><td colSpan="6" className="text-center text-slate-500 py-8">No transactions yet.</td></tr>}
+            {!items.length && <tr><td colSpan={6} className="text-center text-slate-500 py-8">No transactions yet.</td></tr>}
           </tbody>
         </table>
       </div>

@@ -16,7 +16,8 @@ const AuthCtx = createContext<AuthCtxType | null>(null);
 export const useAuth = () => useContext(AuthCtx) as AuthCtxType;
 
 export default function Providers({ children }: { children: ReactNode }) {
-  const { data: session, isPending } = authClient.useSession();
+  const { data: sessionData, isPending } = authClient.useSession();
+  const session = sessionData as any;
   const [user, setUser] = useState<any>(null);
   const [token, setToken] = useState<string | null>(null);
   const [loadingProfile, setLoadingProfile] = useState(true);

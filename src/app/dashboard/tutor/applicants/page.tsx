@@ -33,7 +33,7 @@ export default function ApplicantsPage() {
                 </td>
               </tr>
             ))}
-            {!items.length && <tr><td colSpan="5" className="text-center text-slate-500 py-8">No applicants yet.</td></tr>}
+            {!items.length && <tr><td colSpan={5} className="text-center text-slate-500 py-8">No applicants yet.</td></tr>}
           </tbody>
         </table>
       </div>

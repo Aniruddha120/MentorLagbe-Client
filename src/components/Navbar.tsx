@@ -16,7 +16,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const signOut = async () => {
-    await authClient.signOut();
+    await authClient.signOut({} as any);
     localStorage.removeItem('ml_token');
     router.push('/');
     router.refresh();

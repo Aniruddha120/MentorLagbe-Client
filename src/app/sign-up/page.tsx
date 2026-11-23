@@ -22,10 +22,10 @@ export default function SignUpPage() {
         name: form.name,
         email: form.email,
         password: form.password,
-        role: form.role,
-      });
+      } as any);
       if (error) throw new Error(error.message || 'Sign up failed');
-      await api('/api/jwt', { method: 'POST', body: { email: form.email } });
+      const jwtRes: any = await api('/api/jwt', { method: 'POST', body: { email: form.email } });
+      await api('/api/users/me', { method: 'PATCH', token: jwtRes.token, body: { role: form.role } });
       toast.success('Account created');
       router.push('/dashboard');
       router.refresh();

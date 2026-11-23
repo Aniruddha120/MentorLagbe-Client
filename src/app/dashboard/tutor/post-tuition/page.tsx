@@ -43,7 +43,7 @@ export default function PostTuition() {
             <input type="file" accept="image/*" className="file-input file-input-bordered w-full" onChange={e=>setFile(e.target.files?.[0]||null)} />
             <input className="input input-bordered w-full" placeholder="Or banner image URL" value={form.bannerImage} onChange={set('bannerImage')} />
           </div>
-          <textarea className="textarea textarea-bordered sm:col-span-2" rows="4" placeholder="Description" value={form.description} onChange={set('description')} required />
+          <textarea className="textarea textarea-bordered sm:col-span-2" rows={4} placeholder="Description" value={form.description} onChange={set('description')} required />
           <button className="btn btn-primary sm:col-span-2" disabled={saving}>{saving ? 'Submitting...' : 'Submit for Approval'}</button>
         </form>
       </div>
