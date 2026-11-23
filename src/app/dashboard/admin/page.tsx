@@ -16,6 +16,7 @@ export default function AdminOverview() {
         { label: 'Total Users', value: stats?.totalUsers ?? '—' },
         { label: 'Total Tutors', value: stats?.totalTutors ?? '—' },
         { label: 'Pending Tuitions', value: stats?.pendingTuitions ?? '—' },
+        { label: 'Approved Tuitions', value: stats?.approvedTuitions ?? '—' },
         { label: 'Revenue ($)', value: stats?.totalRevenue ?? '—' },
       ]} />
       <div className="bg-white border rounded-2xl p-6 text-slate-600">Moderate tuition posts, manage user roles, and monitor Stripe transactions from the admin dashboard.</div>
